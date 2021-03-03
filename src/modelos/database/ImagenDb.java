@@ -21,15 +21,16 @@ public class ImagenDb {
     public void eliminar(int id){}
     
     public Imagen getImagen(int id){
+        Imagen i=null;
         try {
-            PreparedStatement statement = ConexionDb.conexion.prepareStatement("SELECT * FROM rutaImagen WHERE id=?;");
+            PreparedStatement statement = ConexionDb.conexion.prepareStatement("SELECT * FROM rutaimagen WHERE id=?;");
             statement.setInt(1, id);
             ResultSet resultado = statement.executeQuery();
-            if(resultado.next()) return instanciarDeResultSet(resultado);
+            if(resultado.next()) i=instanciarDeResultSet(resultado);
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            System.out.println("no se encontraron las rutas");
         }
-        return null;
+        return i;
     }
     
     private Imagen instanciarDeResultSet(ResultSet resultado) throws SQLException{

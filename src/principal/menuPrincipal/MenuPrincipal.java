@@ -21,7 +21,9 @@ import principal.backend.perfil_usuario.Informacion;
 import principal.frontend.gui.calendari_cholquij.FrameCalendario;
 import principal.frontend.gui.perfil_usuario.FramePerfil;
 import principal.ui.LineaDeTiempo;
+import submenus.nahuales.panelNahuales;
 import submenus.perfilUsuario.menuPerfil;
+import submenus.ruedaCalendarica.ruedaCalendarica;
 
 /**
  *
@@ -42,9 +44,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuPrincipal
+     *
+     * @param userM
      */
-    public MenuPrincipal(Usuario user) {
-        this.user = user;
+    public MenuPrincipal(Usuario userM) {
+        this.user = userM;
         initComponents();
         setLocationRelativeTo(null);
 
@@ -73,7 +77,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         btnCerrarSesion = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         btnCholqij = new javax.swing.JButton();
         btnCholqij1 = new javax.swing.JButton();
         btnCholqij2 = new javax.swing.JButton();
@@ -84,7 +87,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         tabPP = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
+        menuNahuales = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuCalendarioLunarCC = new javax.swing.JMenuItem();
         menuFormasCotarCC = new javax.swing.JMenuItem();
@@ -94,8 +97,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuNahualEnergia = new javax.swing.JMenuItem();
         menuMatrizCholqij = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        menuCalendarioHaab = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        menuRC = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        menuLineaTiempo = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         editPerfil = new javax.swing.JMenu();
         menuEditPerfil = new javax.swing.JMenuItem();
         cerrarSesion = new javax.swing.JMenu();
@@ -116,17 +123,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarSesionActionPerformed(evt);
-            }
-        });
-
-        jButton1.setBackground(new java.awt.Color(255, 204, 255));
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Calendario Maya");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -213,17 +209,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu5.setText("Nahuales");
         jMenu5.setFont(new java.awt.Font("Jenna Sue", 1, 30)); // NOI18N
         jMenu5.setPreferredSize(new java.awt.Dimension(93, 40));
-        jMenuBar1.add(jMenu5);
 
-        jMenu1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jMenu1.setText("Calendario Maya");
-        jMenu1.setFont(new java.awt.Font("Jenna Sue", 1, 30)); // NOI18N
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+        menuNahuales.setText("Conocer Nahuales");
+        menuNahuales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+                menuNahualesActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
+        jMenu5.add(menuNahuales);
+
+        jMenuBar1.add(jMenu5);
 
         jMenu2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu2.setText("Calendario Cholqij");
@@ -291,19 +286,50 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Calendario Haab");
         jMenu3.setFont(new java.awt.Font("Jenna Sue", 1, 30)); // NOI18N
         jMenu3.setPreferredSize(new java.awt.Dimension(141, 45));
+
+        menuCalendarioHaab.setText("Explorar Calendario Haab");
+        menuCalendarioHaab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCalendarioHaabActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuCalendarioHaab);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu4.setText("Rueda Calendarica");
         jMenu4.setFont(new java.awt.Font("Jenna Sue", 1, 30)); // NOI18N
         jMenu4.setPreferredSize(new java.awt.Dimension(171, 45));
+
+        menuRC.setText("Explorar rueda Calendarica");
+        menuRC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRCActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menuRC);
+
         jMenuBar1.add(jMenu4);
 
         jMenu6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu6.setText("Linea de Tiempo");
         jMenu6.setFont(new java.awt.Font("Jenna Sue", 1, 30)); // NOI18N
         jMenu6.setPreferredSize(new java.awt.Dimension(141, 45));
+
+        menuLineaTiempo.setText("Explorar Linea de Tiempo");
+        menuLineaTiempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuLineaTiempoActionPerformed(evt);
+            }
+        });
+        jMenu6.add(menuLineaTiempo);
+
         jMenuBar1.add(jMenu6);
+
+        jMenu1.setText("Limpiar pantalla");
+        jMenu1.setFont(new java.awt.Font("Jenna Sue", 1, 31)); // NOI18N
+        jMenuBar1.add(jMenu1);
 
         editPerfil.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -331,9 +357,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(183, 183, 183)
                 .addComponent(btnCholqij)
                 .addGap(18, 18, 18)
                 .addComponent(btnCholqij1)
@@ -364,7 +388,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(btnCholqij2)
                     .addComponent(btnCholqij1)
                     .addComponent(btnCholqij)
-                    .addComponent(jButton1)
                     .addComponent(btnLinea))
                 .addContainerGap())
         );
@@ -426,6 +449,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnCholqij2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCholqij2ActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_btnCholqij2ActionPerformed
 
     private void btnNahualesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNahualesActionPerformed
@@ -444,14 +468,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
     private void menuEditPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditPerfilActionPerformed
         Usuario user2 = info.buscarDatos(user.getUsername());
         if (user2 != null) {
@@ -469,7 +485,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuEditPerfilActionPerformed
 
     private void menuCalendarioLunarCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCalendarioLunarCCActionPerformed
-         String nombreTab = menuCalendarioLunarCC.getText();
+        String nombreTab = menuCalendarioLunarCC.getText();
         tabPP.removeAll();
 
         submenus.calendarioCholquij.panelInformacionCalendarioCholqij infoCC = new submenus.calendarioCholquij.panelInformacionCalendarioCholqij(calendarioLunar, user);
@@ -514,7 +530,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         String nombreTab = menuCalculaFecha.getText();
         tabPP.removeAll();
 
-        submenus.calendarioCholquij.panelFechaCholqij fechaCC = new  submenus.calendarioCholquij.panelFechaCholqij();
+        submenus.calendarioCholquij.panelFechaCholqij fechaCC = new submenus.calendarioCholquij.panelFechaCholqij();
         tabPP.add(fechaCC);
         tabPP.setTitleAt(0, nombreTab);
     }//GEN-LAST:event_menuCalculaFechaActionPerformed
@@ -523,7 +539,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         String nombreTab = menuNahualEnergia.getText();
         tabPP.removeAll();
 
-        submenus.calendarioCholquij.panelNahualEnergiaCholqij fechaCC = new  submenus.calendarioCholquij.panelNahualEnergiaCholqij();
+        submenus.calendarioCholquij.panelNahualEnergiaCholqij fechaCC = new submenus.calendarioCholquij.panelNahualEnergiaCholqij();
         tabPP.add(fechaCC);
         tabPP.setTitleAt(0, nombreTab);
     }//GEN-LAST:event_menuNahualEnergiaActionPerformed
@@ -532,11 +548,47 @@ public class MenuPrincipal extends javax.swing.JFrame {
         String nombreTab = menuMatrizCholqij.getText();
         tabPP.removeAll();
 
-        submenus.calendarioCholquij.panelMatrizCholqij matrizCC = new  submenus.calendarioCholquij.panelMatrizCholqij();
+        submenus.calendarioCholquij.panelMatrizCholqij matrizCC = new submenus.calendarioCholquij.panelMatrizCholqij();
         tabPP.add(matrizCC);
         tabPP.setTitleAt(0, nombreTab);
         // TODO add your handling code here:
     }//GEN-LAST:event_menuMatrizCholqijActionPerformed
+
+    private void menuCalendarioHaabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCalendarioHaabActionPerformed
+        String nombreTab = menuCalendarioHaab.getText();
+        tabPP.removeAll();
+
+        submenus.calendarioHaab.menuCalendarioHaab infoCC = new submenus.calendarioHaab.menuCalendarioHaab();
+        tabPP.add(infoCC);
+        tabPP.setTitleAt(0, nombreTab);
+
+    }//GEN-LAST:event_menuCalendarioHaabActionPerformed
+
+    private void menuLineaTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLineaTiempoActionPerformed
+        String nombreTab = menuLineaTiempo.getText();
+        tabPP.removeAll();
+        submenus.lineaDeTiempo.panelLIneaTIempo p = new submenus.lineaDeTiempo.panelLIneaTIempo(user);
+        tabPP.add(p);
+        tabPP.setTitleAt(0, nombreTab);
+
+    }//GEN-LAST:event_menuLineaTiempoActionPerformed
+
+    private void menuNahualesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNahualesActionPerformed
+        String nombreTab = menuNahuales.getText();
+        tabPP.removeAll();
+        panelNahuales p = new panelNahuales();
+        tabPP.add(p);
+        tabPP.setTitleAt(0, nombreTab);
+    }//GEN-LAST:event_menuNahualesActionPerformed
+
+    private void menuRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRCActionPerformed
+       String nombreTab = menuRC.getText();
+        tabPP.removeAll();
+        ruedaCalendarica p = new ruedaCalendarica();
+        tabPP.add(p);
+        tabPP.setTitleAt(0, nombreTab);
+         // TODO add your handling code here:
+    }//GEN-LAST:event_menuRCActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -549,7 +601,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPerfil;
     private javax.swing.JMenu cerrarSesion;
     private javax.swing.JMenu editPerfil;
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -561,12 +612,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem menuCCInfo;
     private javax.swing.JMenuItem menuCalculaFecha;
+    private javax.swing.JMenuItem menuCalendarioHaab;
     private javax.swing.JMenuItem menuCalendarioLunarCC;
     private javax.swing.JMenuItem menuDiasCalendarioLunarCC;
     private javax.swing.JMenuItem menuEditPerfil;
     private javax.swing.JMenuItem menuFormasCotarCC;
+    private javax.swing.JMenuItem menuLineaTiempo;
     private javax.swing.JMenuItem menuMatrizCholqij;
     private javax.swing.JMenuItem menuNahualEnergia;
+    private javax.swing.JMenuItem menuNahuales;
+    private javax.swing.JMenuItem menuRC;
     private javax.swing.JPanel panelPrincipal;
     public static javax.swing.JTabbedPane tabPP;
     // End of variables declaration//GEN-END:variables

@@ -50,29 +50,30 @@ public class panelFechaCholqij extends javax.swing.JPanel {
         lblImgEnergia = new javax.swing.JLabel();
         lblTitulop = new javax.swing.JLabel();
         lblFechaActual = new javax.swing.JLabel();
-        date = new com.toedter.calendar.JDateChooser();
+        dateFechaBuscar = new com.toedter.calendar.JDateChooser();
         lblFechaActual1 = new javax.swing.JLabel();
         btnCalcular = new javax.swing.JButton();
         lblImgCC = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 204, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        lblFechaActual2.setFont(new java.awt.Font("Lobster", 0, 24)); // NOI18N
-        lblFechaActual2.setForeground(new java.awt.Color(255, 255, 255));
+        lblFechaActual2.setFont(new java.awt.Font("Lobster", 0, 36)); // NOI18N
+        lblFechaActual2.setForeground(new java.awt.Color(255, 102, 0));
         lblFechaActual2.setText("Energia");
 
         lblImgEnergia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImgEnergia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblTitulop.setFont(new java.awt.Font("Jenna Sue", 1, 48)); // NOI18N
-        lblTitulop.setForeground(new java.awt.Color(153, 0, 51));
+        lblTitulop.setFont(new java.awt.Font("Jenna Sue", 1, 50)); // NOI18N
+        lblTitulop.setForeground(new java.awt.Color(204, 0, 102));
         lblTitulop.setText("CALCULAR FECHA CHOLQ'IJ");
 
         lblFechaActual.setFont(new java.awt.Font("Jenna Sue", 1, 36)); // NOI18N
+        lblFechaActual.setForeground(new java.awt.Color(0, 0, 102));
         lblFechaActual.setText("Fecha Actual: ");
 
-        lblFechaActual1.setFont(new java.awt.Font("Lobster", 0, 24)); // NOI18N
-        lblFechaActual1.setForeground(new java.awt.Color(255, 255, 255));
+        lblFechaActual1.setFont(new java.awt.Font("Lobster", 0, 36)); // NOI18N
+        lblFechaActual1.setForeground(new java.awt.Color(255, 102, 0));
         lblFechaActual1.setText("Calendario Cholq'ij");
 
         btnCalcular.setBackground(new java.awt.Color(255, 255, 204));
@@ -92,32 +93,29 @@ public class panelFechaCholqij extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(368, 368, 368)
-                .addComponent(lblTitulop)
-                .addContainerGap(180, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblFechaActual)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(lblFechaActual1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblFechaActual2)
-                        .addGap(227, 227, 227))
+                        .addGap(368, 368, 368)
+                        .addComponent(lblTitulop))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(169, 169, 169))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(lblImgCC, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblImgEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(204, 204, 204))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblFechaActual)
+                                    .addComponent(dateFechaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(137, 137, 137)
+                                .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(173, 173, 173)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblImgCC, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblImgEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFechaActual1)
+                            .addComponent(lblFechaActual2))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,18 +125,23 @@ public class panelFechaCholqij extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addComponent(lblFechaActual)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFechaActual2)
-                    .addComponent(lblFechaActual1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dateFechaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblImgEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblImgCC, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(96, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(btnCalcular))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblFechaActual1)
+                                .addGap(121, 121, 121)
+                                .addComponent(lblFechaActual2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblImgCC, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(lblImgEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     public class Imagen extends javax.swing.JPanel {
@@ -161,11 +164,17 @@ public class panelFechaCholqij extends javax.swing.JPanel {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         // TODO add your handling code here:
-        ManejadorCalcular manejadorCalcular = ManejadorCalcular.getInstancia();
-        lblImgCC.setIcon(manejadorCalcular.getIcon(nahual(timeCholqij(date.getCalendar().getTime().getTime()))));
-        lblImgEnergia.setIcon(manejadorCalcular.getIconLvl(nivel(timeCholqij(date.getCalendar().getTime().getTime()))));
 
-  
+        if (!dateFechaBuscar.isValid() || dateFechaBuscar.getDate()==null) {
+            System.out.println("no se ejecuto fecha invalida");
+        } else {
+            ManejadorCalcular manejadorCalcular = ManejadorCalcular.getInstancia();
+            lblImgCC.setIcon(manejadorCalcular.getIcon(nahual(timeCholqij(dateFechaBuscar.getCalendar().getTime().getTime()))));
+            lblImgEnergia.setIcon(manejadorCalcular.getIconLvl(nivel(timeCholqij(dateFechaBuscar.getCalendar().getTime().getTime()))));
+
+        }
+
+
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     public int nahual(int cont) {
@@ -238,7 +247,7 @@ public class panelFechaCholqij extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
-    private com.toedter.calendar.JDateChooser date;
+    private com.toedter.calendar.JDateChooser dateFechaBuscar;
     private javax.swing.JLabel lblFechaActual;
     private javax.swing.JLabel lblFechaActual1;
     private javax.swing.JLabel lblFechaActual2;

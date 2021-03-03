@@ -12,27 +12,31 @@ import javax.swing.JLabel;
 import modelos.database.HechoHistoricoDb;
 import modelos.objetos.HechoHistorico;
 import modelos.objetos.Usuario;
+import submenus.lineaDeTiempo.AgregarEvento;
+import submenus.lineaDeTiempo.EventoDeTiempo;
 
 /**
  *
  * @author sergio
  */
-public class LineaDeTiempo extends javax.swing.JFrame {
+public final class LineaDeTiempo extends javax.swing.JFrame {
 
     private ArrayList<EventoDeTiempo> eventos;
-    private Usuario usuario;
+    private final Usuario usuario1;
     public final static ImageIcon BG = new ImageIcon("Imagenes/fondoLineaTiempo.jpg");
     private int index = 0;
+    public static HechoHistorico hH=null;
 
     /**
      * Creates new form LineaDeTiempo
+     * @param usuario
      */
     public LineaDeTiempo(Usuario usuario) {
         initComponents();
         HechoHistoricoDb hechoHistoricoDb = new HechoHistoricoDb();
         obtenerHechos();
         setLocationRelativeTo(null);
-        this.usuario = usuario;
+        this.usuario1 = usuario;
         this.eventos = eventos;
         verificarUsuario();
         addPrimerHecho();
@@ -44,11 +48,8 @@ public class LineaDeTiempo extends javax.swing.JFrame {
         HechoHistoricoDb hechoHistoricoDb = new HechoHistoricoDb();
         LinkedList<HechoHistorico> hechoHistoricos = hechoHistoricoDb.leerHechosHistoricos();
         eventos = new ArrayList<>();
-
         for (int i = 0; i < hechoHistoricos.size(); i++) {
-
             eventos.add(new EventoDeTiempo(hechoHistoricos.get(i)));
-
         }
     }
 
@@ -168,12 +169,15 @@ public class LineaDeTiempo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
-            .addComponent(navMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(194, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(344, 344, 344))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(navMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,8 +230,8 @@ public class LineaDeTiempo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        AgregarEvento ae= new AgregarEvento();
-        ae.setLinea(this);
+        AgregarEvento ae = new AgregarEvento();
+//        ae.setLinea(this);
         ae.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -249,32 +253,17 @@ public class LineaDeTiempo extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     private void verificarUsuario() {
-        if (usuario.getRol() == 1) {
-            navMenu4.setVisible(true);
-        } else {
-            navMenu4.setVisible(false);
-        }
+        //todos pueden editar campos
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCholqij;
-    private javax.swing.JButton btnCholqij1;
-    private javax.swing.JButton btnCholqij2;
-    private javax.swing.JButton btnCholqij3;
     private javax.swing.JButton btnCholqij4;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel navMenu;
-    private javax.swing.JPanel navMenu1;
-    private javax.swing.JPanel navMenu2;
-    private javax.swing.JPanel navMenu3;
     private javax.swing.JPanel navMenu4;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,7 +15,7 @@ import javax.swing.JLabel;
  * @author jose_
  */
 public class Imagen {
-    
+
     private int id;
     private String dirWeb, dirEscritorio, categoria;
 
@@ -60,11 +60,10 @@ public class Imagen {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    
-    
-    public void colocarImagen(JLabel label){
+
+    public void colocarImagen(JLabel label) {
         ImageIcon imIcon = new ImageIcon(this.dirEscritorio);
-        Icon icono = new ImageIcon(imIcon.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
+        Icon icono = new ImageIcon(imIcon.getImage().getScaledInstance(135, 135, Image.SCALE_DEFAULT));
         label.setIcon(icono);
     }
 }

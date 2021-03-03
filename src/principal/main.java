@@ -22,9 +22,8 @@ public class main {
             //INICIAMOS CONECTANDO  DB  
             ConexionDb.obtenerConexion();
             
-            Login logeo = new Login();
-            logeo.iniciar();
-            
+            Login login = new Login();
+            login.iniciar();
             
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);

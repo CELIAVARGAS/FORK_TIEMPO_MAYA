@@ -18,7 +18,7 @@ import modelos.objetos.Informacion;
  */
 public class InformacionDb {
     
-    private Mensaje mensajes = new Mensaje();
+    private final Mensaje mensajes = new Mensaje();
     
     public void crear(Informacion informacion){
         try {
@@ -65,38 +65,40 @@ public class InformacionDb {
         try {
             PreparedStatement statement = ConexionDb.conexion.prepareStatement("SELECT * FROM informacion;");
             ResultSet resultado = statement.executeQuery();
-            while(resultado.next()) informaciones.add(instanciarDeResultSet(resultado));
+            while(resultado.next()) informaciones.add(convertirInformacion(resultado));
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            System.out.println("Toda la info no se proceso");
         }
         return informaciones;
     }
     
     public Informacion getInformacion(String titulo){
+      Informacion i = null;
         try {
             PreparedStatement statement = ConexionDb.conexion.prepareStatement("SELECT * FROM informacion WHERE titulo=?;");
             statement.setString(1, titulo);
             ResultSet resultado = statement.executeQuery();
-            if(resultado.next()) return instanciarDeResultSet(resultado);
+            if(resultado.next()) i= convertirInformacion(resultado);
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            System.out.println("La info no se obtuvo");
         }
-        return null;
+        return i;
     }
     
     public Informacion getInformacion(int id){
+        Informacion i = null;
         try {
             PreparedStatement statement = ConexionDb.conexion.prepareStatement("SELECT * FROM informacion WHERE id=?;");
             statement.setInt(1, id);
             ResultSet resultado = statement.executeQuery();
-            if(resultado.next()) return instanciarDeResultSet(resultado);
+            if(resultado.next()) i= convertirInformacion(resultado);
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            System.out.println("la info no se proceso");
         }
-        return null;
+        return i;
     }
     
-    private Informacion instanciarDeResultSet(ResultSet resultado) throws SQLException{
+    private Informacion convertirInformacion(ResultSet resultado) throws SQLException{
         return new Informacion(
                 resultado.getInt("id"),
                 resultado.getString("titulo"),

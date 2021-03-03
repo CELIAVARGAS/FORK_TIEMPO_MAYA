@@ -45,8 +45,6 @@ public class VentanaInfoNahuales extends javax.swing.JFrame {
         
         scrollPane.getViewport().setOpaque(false);
         scrollPane.setBorder(null);
-        //scrollPane.setBackground(new Color(255, 255, 255, 100));
-        //panelInfo.setBackground(new Color(255, 255, 255, 100));
         textPaneSig.setEditable(false);
         textPaneDes.setEditable(false);
         labelDescripcion.setFont(labelSignificado.getFont());
@@ -72,6 +70,7 @@ public class VentanaInfoNahuales extends javax.swing.JFrame {
         pintar();
         setPosiciones();
     }
+    
     public void setPosiciones(){
         
         textPaneSig.setBounds(labelSignificado.getX(), labelSignificado.getHeight()+labelSignificado.getY()+2, panelInfo.getWidth()-40, calcularFilas(textPaneSig.getText())*25);

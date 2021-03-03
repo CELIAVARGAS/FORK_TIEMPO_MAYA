@@ -340,7 +340,7 @@ public class menuPerfil extends javax.swing.JPanel {
         //1 validar campos
         if (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty() || txtEmail.getText().isEmpty()
                 || txtPassword.getText().isEmpty() || txtUsername.getText().isEmpty() || txtTelefono.getText().isEmpty()
-                || boxDate.getDate() == null) {
+                || boxDate.getDate() == null || !boxDate.isValid()) {
             //mostrar error.
             JOptionPane.showMessageDialog(null, "Por favor llene todos los campos", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {

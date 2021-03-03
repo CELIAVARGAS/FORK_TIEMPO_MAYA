@@ -54,7 +54,7 @@ public class Cargador {
     
     public void colocarImagen(JLabel label){
         ImageIcon imIcon = new ImageIcon(this.imagen);
-        Icon icono = new ImageIcon(imIcon.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
+        Icon icono = new ImageIcon(imIcon.getImage().getScaledInstance(135, 135, Image.SCALE_DEFAULT));
         label.setIcon(icono);
     }
 }

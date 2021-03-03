@@ -17,8 +17,10 @@ import modelos.objetos.Nahual;
  * @author jose_
  */
 public class NahualDb {
-    
-    public void crear(Nahual nahual){
+        private final Mensaje mensajes = new Mensaje();
+
+
+    public void crear(Nahual nahual) {
         try {
             PreparedStatement statement = ConexionDb.conexion.prepareStatement("INSERT INTO nahual "
                     + "(nombre,idImagen,signficado,descripcion,fechaInicio,fechaFinalizacion,nombreYucateco,nombreSp) VALUES (?,?,?,?,?,?,?,?)");
@@ -32,11 +34,11 @@ public class NahualDb {
             statement.setString(8, nahual.getNombreEsp());
             statement.executeUpdate();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            mensajes.error("Asegurese que el nahual no se repita");
         }
     }
-    
-    public void modificar(Nahual nahual){
+
+    public void modificar(Nahual nahual) {
         try {
             PreparedStatement statement = ConexionDb.conexion.prepareStatement("UPDATE nahual SET "
                     + "nombre=?, idImagen=?, significado=?, descripcion=?, fechaInicio=?, fechaFinalizacion=?,"
@@ -51,45 +53,50 @@ public class NahualDb {
             statement.setString(8, nahual.getNombreEsp());
             statement.setInt(9, nahual.getId());
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            mensajes.error("EL nahual no se actualizo");
         }
     }
-    
-    public void eliminar(Nahual nahual){
+
+    public void eliminar(Nahual nahual) {
         try {
             PreparedStatement statement = ConexionDb.conexion.prepareStatement("DELETE FROM nahual WHERE id=?;");
             statement.setInt(1, nahual.getId());
             statement.executeUpdate();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            mensajes.error("EL nahual no se elimino");
         }
     }
-    
-    public List<Nahual> getNahuales(){
+
+    public List<Nahual> getNahuales() {
         List<Nahual> nahuales = new ArrayList();
         try {
             PreparedStatement statement = ConexionDb.conexion.prepareStatement("SELECT * FROM nahual;");
             ResultSet resultado = statement.executeQuery();
-            while(resultado.next()) nahuales.add(instanciarDeResultSet(resultado));
+            while (resultado.next()) {
+                nahuales.add(instanciarDeResultSet(resultado));
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            System.out.println("No se procesaron los nahuales");
         }
         return nahuales;
     }
-    
-    public Nahual getNahual(int id){
+
+    public Nahual getNahual(int id) {
+        Nahual n = null;
         try {
             PreparedStatement statement = ConexionDb.conexion.prepareStatement("SELECT * FROM nahual WHERE id=?;");
             statement.setInt(1, id);
             ResultSet resultado = statement.executeQuery();
-            if(resultado.next()) return instanciarDeResultSet(resultado);
+            if (resultado.next()) {
+                n = instanciarDeResultSet(resultado);
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            System.out.println("no se obtuvo el nahual"); 
         }
-        return null;
+        return n;
     }
-    
-    private Nahual instanciarDeResultSet(ResultSet resultado) throws SQLException{
+
+    private Nahual instanciarDeResultSet(ResultSet resultado) throws SQLException {
         ImagenDb accesoImagen = new ImagenDb();
         return new Nahual(
                 resultado.getInt("id"),
