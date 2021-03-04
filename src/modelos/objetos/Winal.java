@@ -5,10 +5,6 @@
  */
 package modelos.objetos;
 
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *

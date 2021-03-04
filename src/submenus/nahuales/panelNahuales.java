@@ -225,7 +225,9 @@ public final class panelNahuales extends javax.swing.JPanel {
 
         boxDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
+        btnCalcular.setBackground(new java.awt.Color(255, 255, 204));
         btnCalcular.setText("Calcular Nahual de la Fecha");
+        btnCalcular.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalcularActionPerformed(evt);

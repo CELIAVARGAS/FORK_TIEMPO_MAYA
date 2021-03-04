@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author jose_
  */
 public class ConexionDb {//Aquí la conexion a la base de datos
-    
+
     public static Connection conexion = null;
 
     //llenar con credenciales de su DB , datos de ejemplo
@@ -23,20 +23,20 @@ public class ConexionDb {//Aquí la conexion a la base de datos
     final static String password = "53959617";
 
     //Nos conectamos a nuestra db
-    public static  Connection obtenerConexion() throws SQLException, ClassNotFoundException {
+    public static Connection obtenerConexion() throws SQLException, ClassNotFoundException {
         if (conexion == null) {
             try {
                 //Buscamos nuestra db por medio de su ubicacion <entorno  local>, mandando el nombre y nuestra password
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                String stringConnection = "jdbc:mysql://localhost/"+nombreBaseDatos+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                String stringConnection = "jdbc:mysql://localhost/" + nombreBaseDatos + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
                 conexion = DriverManager.getConnection(stringConnection, usuario, password);
-                
+
             }//en caso de que no se encuentre la base de datos 
             catch (SQLException ex) {
                 ex.printStackTrace();
             }//en caso de que no encuentre la libreria 
             catch (ClassNotFoundException ex) {
-              ex.printStackTrace();
+                ex.printStackTrace();
             }
         }
         return conexion;

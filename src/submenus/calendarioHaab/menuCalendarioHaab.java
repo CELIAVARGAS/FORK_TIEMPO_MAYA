@@ -347,8 +347,8 @@ public class menuCalendarioHaab extends javax.swing.JPanel {
         FechaHaab fechaActual = acceso.getFechaEspecifica(Utilidades.DateToLocalDate(fecha));
         txtDIaHaab.setText(fechaActual.getNahual().getNombre());
         txtMesHaab.setText(fechaActual.getWinal().getNombre());
-        fechaActual.getNahual().getImagen().colocarImagen(lblNahual);
-        fechaActual.getWinal().getImagen().colocarImagen(lblWinal);
+        fechaActual.getNahual().getImagen().colocarImagen(lblNahual,135,135);
+        fechaActual.getWinal().getImagen().colocarImagen(lblWinal,135,135);
         fechaActual.getCargador().colocarImagen(lblCargador);
     }
 
