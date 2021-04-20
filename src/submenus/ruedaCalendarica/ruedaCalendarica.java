@@ -305,7 +305,8 @@ public class ruedaCalendarica extends javax.swing.JPanel {
                 }
                 System.out.println("---------------------------- ");
                 calculoRuedaCalendarica cRC = new calculoRuedaCalendarica();
-                cRC.calculoCuentaLarga(diasTranscurridos, sobrePasaFechaPivote, txtBaktun, txtKatun, txtTun, txtUinal, txtKin);
+                cRC.calculoCuentaLarga(diasTranscurridos, sobrePasaFechaPivote, txtBaktun, txtKatun, 
+                        txtTun, txtUinal, txtKin);
                 cRC.calculoTzolqin(diasTranscurridos, sobrePasaFechaPivote,icTzol, lblNombreT, diaTzol);
                 cRC.calculoHaab(diasTranscurridos, sobrePasaFechaPivote, icH, lblNombeH, diaHab);
 

@@ -5,14 +5,10 @@
  */
 package submenus.ruedaCalendarica;
 
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import modelos.database.NahualDb;
 import modelos.database.WinalDb;
-import modelos.objetos.Imagen;
 import modelos.objetos.Nahual;
 import modelos.objetos.Winal;
 
@@ -58,7 +54,8 @@ public class calculoRuedaCalendarica {
         txtKin.setText("" + numKi);
     }
 
-    public void calculoTzolqin(int cantidadSobrePasa, boolean sobrePasa, JLabel icNa, JLabel nombreN, JTextField numeroN) {
+    public void calculoTzolqin(int cantidadSobrePasa, boolean sobrePasa, JLabel icNa, JLabel nombreN, JTextField numeroN) 
+    {
         long op1 = (cantidadSobrePasa % 260);
         long op2 = (op1 % 13);
         long op3 = (op1 % 20);

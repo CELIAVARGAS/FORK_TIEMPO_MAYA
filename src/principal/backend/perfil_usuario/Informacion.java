@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelos.database.ConexionDb;
-import modelos.objetos.Cargador;
 import modelos.objetos.Usuario;
 
 /**
@@ -39,7 +38,7 @@ public class Informacion {
                 user.setRol(result.getInt("rol"));
             }
         } catch (SQLException ex) {
-            System.out.println("nop se encontro nada");
+            System.out.println("no se encontro nada");
             Logger.getLogger(Informacion.class.getName()).log(Level.SEVERE, null, ex);
             
         }

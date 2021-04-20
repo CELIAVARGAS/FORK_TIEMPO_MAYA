@@ -7,7 +7,6 @@ package submenus.calendarioCholquij;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,9 +14,7 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import principal.backend.calendari_cholquij.calcular_fecha.CalcularFecha;
 
 /**
  *
@@ -240,7 +237,7 @@ public class panelFechaCholqij extends javax.swing.JPanel {
             long regresar = TimeUnit.DAYS.convert(datePivote.getTime() - date, TimeUnit.MILLISECONDS);
             return (int) regresar;
         } catch (ParseException ex) {
-            Logger.getLogger(CalcularFecha.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(panelFechaCholqij.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 1;
     }

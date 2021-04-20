@@ -266,17 +266,26 @@ public class panelLIneaTIempo extends javax.swing.JPanel {
     private void btnAdelanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdelanteActionPerformed
         index++;
         panelPrincipal.removeAll();
-        panelPrincipal.add(eventos.get(index));
-        eventos.get(index).setVisible(true);
-        panelPrincipal.validate();
-        panelPrincipal.repaint();
-        if (index == eventos.size() - 1) {
-            btnAdelante.setEnabled(false);
+        System.out.println("cantidad de eventos "+eventos.size());
+        System.out.println("index "+index);
+        
+        if (eventos.size() > index) {
+            panelPrincipal.add(eventos.get(index));
+            eventos.get(index).setVisible(true);
+            panelPrincipal.validate();
+            panelPrincipal.repaint();
+            if (index == eventos.size() - 1) {
+                btnAdelante.setEnabled(false);
 
+            } else {
+                btnAdelante.setEnabled(true);
+            }
+            botonAtrAas.setEnabled(true);
         } else {
-            btnAdelante.setEnabled(true);
+
         }
-        botonAtrAas.setEnabled(true);
+
+
     }//GEN-LAST:event_btnAdelanteActionPerformed
 
     private void editarElementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarElementoActionPerformed

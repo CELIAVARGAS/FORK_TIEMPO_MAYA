@@ -22,7 +22,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import modelos.database.NahualDb;
 import modelos.objetos.Nahual;
-import principal.backend.calendari_cholquij.calcular_fecha.CalcularFecha;
 
 /**
  *
@@ -181,7 +180,7 @@ public final class panelNahuales extends javax.swing.JPanel {
             long regresar = TimeUnit.DAYS.convert(datePivote.getTime() - date, TimeUnit.MILLISECONDS);
             return (int) regresar;
         } catch (ParseException ex) {
-            Logger.getLogger(CalcularFecha.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(panelNahuales.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 1;
     }

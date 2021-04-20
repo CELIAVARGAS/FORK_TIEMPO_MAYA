@@ -6,21 +6,15 @@
 package principal.menuPrincipal;
 
 import api.login.ArchivoLogin;
-import frontend.gui.CalendarioHaab;
-import gui.infonahuales.VentanaInfoNahuales;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.UnsupportedLookAndFeelException;
 import modelos.objetos.Usuario;
 import principal.backend.perfil_usuario.Informacion;
-import principal.frontend.gui.calendari_cholquij.FrameCalendario;
-import principal.frontend.gui.perfil_usuario.FramePerfil;
-import principal.ui.LineaDeTiempo;
 import submenus.nahuales.panelNahuales;
 import submenus.perfilUsuario.menuPerfil;
 import submenus.ruedaCalendarica.ruedaCalendarica;
